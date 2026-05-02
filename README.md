@@ -1,83 +1,101 @@
-# 🚀 SAP ABAP Function Module – Delivery & Vendor Data Integration
+# 🚀 SAP ABAP Function Module – LIKP & LFA1 Integration
 
 ## 📌 Overview
-This project demonstrates the development of a custom ABAP Function Module that retrieves and integrates delivery and vendor data within SAP.
+This project demonstrates a custom SAP ABAP Function Module that retrieves and integrates delivery and vendor data using standard SAP tables.
 
-The solution uses:
-- LIKP (Delivery Header Table)
-- LFA1 (Vendor Master Table)
+It combines:
+- LIKP (Delivery Header Data)
+- LFA1 (Vendor Master Data)
+
+The project also includes a test report program to validate the functionality.
 
 ---
 
 ## 🎯 Objective
-To design a reusable Function Module that:
+To build a reusable Function Module that:
+- Fetches vendor details using Vendor Number (LIFNR)
 - Fetches delivery details using Delivery Number (VBELN)
-- Retrieves corresponding vendor information
-- Supports logistics and procurement reporting
+- Returns structured output for reporting and analysis
 
 ---
 
 ## ⚙️ Function Module Details
-**Function Module Name:** `Z_FM_LFA1_LIKP`
+**Function Module Name:** `ZFM_LFA1_LIKP`
 
-### 🔹 Input
-- `IV_VBELN` – Delivery Number
+### 🔹 Input Parameters
+- `I_LIFNR` – Vendor Number  
+- `I_VBELN` – Delivery Number  
 
-### 🔹 Output
-- `EV_LIFNR` – Vendor Number  
-- `EV_NAME1` – Vendor Name  
+### 🔹 Output Parameters
+- `IT_LFA1` – Vendor Data (Internal Table)  
+- `IT_LIKP` – Delivery Data (Internal Table)  
+
+---
+
+## 🧪 Test Report Program
+
+**Report Name:** `ZFM_LFA1_LIKP`
+
+---
+
+## 📥 Sample Input
+
+| Parameter | Value     | Description        |
+|----------|----------|--------------------|
+| LIFNR    | 10000001 | Vendor Number      |
+| VBELN    | 80000012 | Delivery Number    |
+
+---
+
+## 📤 Sample Output
+
+After executing the report, the output will be displayed as:
+<img width="200" height="200" alt="image" src="https://github.com/user-attachments/assets/4d0f8d52-fc9b-4a8e-a127-579fa34ce256" />
 
 ---
 
 ## 🧩 Technologies Used
-- SAP ABAP
+- SAP ABAP  
+- Function Modules  
+- Open SQL  
 - Data Dictionary (DDIC)
-- Function Modules
-- Open SQL
-
----
-
-## 📊 Business Use Case
-This project can be used in:
-- Logistics reporting
-- Vendor tracking
-- Procurement analysis
-- Delivery monitoring systems
-
 
 ---
 
 ## 🔄 Process Flow
-1. User enters Delivery Number (VBELN)  
-2. System reads delivery data from LIKP  
-3. Vendor number (LIFNR) is extracted  
-4. Vendor details are fetched from LFA1  
-5. Results are returned to the calling program  
+1. User enters Vendor Number (LIFNR) and Delivery Number (VBELN)  
+2. Function Module is called  
+3. Vendor data is fetched from LFA1  
+4. Delivery data is fetched from LIKP  
+5. Data is returned to the report  
+6. Output is displayed on screen  
 
 ---
 
 ## 💡 Key Features
-- Modular and reusable Function Module  
-- Efficient database access using Open SQL  
-- Clean and structured ABAP code  
-- Real-time data retrieval  
+- Modular Function Module design  
+- Reusable logic  
+- Efficient Open SQL queries  
+- Simple output using WRITE statements  
+- Beginner-friendly implementation  
 
 ---
 
-## 🧪 Testing
-A test report program is included to:
-- Validate Function Module output  
-- Simulate real-time execution  
+## 📊 Business Use Case
+- Logistics reporting  
+- Vendor tracking  
+- Procurement analysis  
+- Delivery monitoring  
 
 ---
 
 ## 📈 Future Enhancements
 - ALV Report integration  
-- Improved error handling  
-- Performance optimization using JOIN queries  
-- Integration with standard SAP reports (e.g., ME2M)
+- Error handling improvements  
+- Performance optimization using JOIN  
+- Integration with standard SAP reports  
 
 ---
 
 ## 🏷️ Tags
-sap-abap, abap, sap-development, function-module, erp, logistics
+sap-abap, abap, sap-development, function-module, erp, logistics, sap-project
